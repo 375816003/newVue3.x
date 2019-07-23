@@ -13,6 +13,8 @@ export default {
     return{
       msg:99
     }
+  },
+  mounted(){
   }
 }
 </script>
