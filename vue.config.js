@@ -1,5 +1,24 @@
+const path = require('path');
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
   lintOnSave: false,
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@$', resolve('src'))
+      .set('@$', resolve('src'))
+      .set('assets', resolve('src/assets'))
+      .set('components', resolve('src/components'))
+      .set('http', resolve('src/http'))
+      .set('models', resolve('src/models'))
+      .set('storage', resolve('src/storage'))
+      .set('store', resolve('src/store'))
+      .set('utils', resolve('src/utils'))
+      .set('router', resolve('src/router'))
+      .set('views', resolve('src/views'))
+      .set('static', resolve('./public'))
+  },
   baseUrl: process.env.NODE_ENV === 'production' ? '/online/' : '/',
   // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
   // outputDir: 'dist',

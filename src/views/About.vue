@@ -1,5 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <img src="/static/logo.png" alt="" srcset="">
+    <h1>This is an about page222</h1>
   </div>
 </template>
