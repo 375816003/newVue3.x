@@ -1,0 +1,136 @@
+/* 字体配置 start */
+
+
+/* 字体大小 */
+
+$fontSizeExtraLarge: 20px; // 超大字体
+$fontSizeLarge: 18px; // 大号字体
+$fontSizeMiddle: 16px; // 中号字体
+$fontSizeNormal: 14px; // 正常字体
+$fontSizeSmall: 12px; // 小号字体
+
+/* 字体样式 */
+
+// $fontStyleNormal: Microsoft Yahei; // 字体样式
+$fontStyleNormal: PingFangSC-Regular;
+
+/* 字体粗细 */
+
+$fontWeight: 600;
+
+/*  字体配置 end */
+
+
+/* 颜色配置 start */
+
+
+/* 主色 */
+
+$lightBlue: #0081e3;
+$darkBlue: #0273c8;
+$silver: #8492A6;
+$blue: #3EB6F2;
+$white: #FFF;
+
+/* 功能色 */
+
+
+/* 链接 */
+$colorLink1: #666666; // 二三级路由 字体颜色 link1状态
+$colorLink2: #777777; // 二三级路由 字体颜色 link2状态
+$colorHover: #1F2D3D; // 二三级路由 字体颜色 hover
+$colorActive: #0091FF; // 二三级路由 字体颜色 active
+
+/* 字体颜色 */
+
+$colorText: #333333; // 正常字体颜色
+$colorAnnotation: #999999;
+$colorTextFirstRoute: #FFF; // 一级路由字体颜色
+
+/*　背景颜色　*/
+
+$colorFirstRouteBg: #1e89e0;
+$colorContentBg: #f9fafc;
+$colorContentBg2: #f7fdfc;
+$colorContentBgMain: #F7FBFD;
+$slidingColorBg:#999999;
+/* 颜色配置 end */
+
+
+/* 边框样式 start */
+
+$borderStyle1: 1px solid #1e89e0;
+$borderStyle2: 1px solid #dfe6ec;
+$borderColor: #000000;
+
+/* 边框样式 end */
+
+
+/* 图片上传样式 start */
+
+$picUploaderBorder:1px dashed #d9d9d9; //外框的边框
+$picUploaderBorderHover:1px dashed #20a0ff; //外框的边框 鼠标移入状态
+
+/* 图片上传样式 end */
+
+
+/** 血糖 血压 检测显示颜色 start */
+
+$colorRed:#fe7474;
+$colorOrange: #FFA54E;
+$colorGreen: #64CC37;
+$colorYellow: #edd900;
+
+/** 血压正高 */
+
+$colorBpYellow: #edd900;
+
+/** 血压轻中重 高 */
+
+$colorBpRed:#ff5959;
+
+/** 血压正常 */
+
+$colorBpGreen: #5dca22;
+$colorhdhbaGreen: "#228A46";
+$hba1cPerfect : '#E6D03B';
+$hba1cGood: '#D06628';
+$hba1cBad: '#CF482B';
+$hba1cTerrible:'#B1292F';
+
+/** 血糖 血压 检测显示颜色 end */
+
+.noDataMsg {
+  margin-top: 15%;
+}
+
+.vertical-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.vertical-middle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+}
+
+.align-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+}
+
+@mixin opacity($opacity) {
+  filter: alpha(opacity=$opacity * 100);
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+}

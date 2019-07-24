@@ -1,0 +1,13 @@
+@media print {
+  body>div {
+    display: none;
+  }
+
+  .adviceBtn {
+    display: none;
+  }
+
+  .report-print {
+    display: block;
+  }
+}
