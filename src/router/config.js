@@ -1,15 +1,14 @@
-const Home = () => import("views/Home.vue")
-const About = () => import("views/About.vue")
+const loginDoctor = () => import("views/login/loginDoctor.vue")
+
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    redirect:'/login',
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About
+    path: '/login',
+    name: 'login',
+    component: loginDoctor
   }
 ];
 

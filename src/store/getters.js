@@ -1,5 +1,5 @@
 const getters = {
-  
+  loading: state => state.loading,
   // im聊天测试
   currentChatPerson: state => state.webim.currentChatPerson,
   newMsgList: state => state.webim.newMsgList,
