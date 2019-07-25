@@ -144,7 +144,9 @@ export default {
         }
       });
     },
-    toLogin(login){},
+    toLogin(login){
+      this.$router.push('root');
+    },
 
     noticePlay(noticeTop) {
       let noticeTextHeight = this.noticeTextHeight;

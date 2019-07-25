@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+/*------------常用 start-----------*/
+
+/*---------浮动------------*/
+.left{
+    float:left!important;
+}
+
+.right{
+    float: right;
+}
+
+/*----------鼠标-------*/
+.cur{
+    cursor: pointer;
+}
+
+/*---------width---------*/
+.w100{
+    width: 100%!important;
+}
+
+/*------------margin-----------*/
+.mt0{
+    margin: 0!important;
+}
+
+.mt10{
+    margin-top: 10px!important;
+}
+
+.mt15per{
+    margin-top: 15%!important;
+}
+
+.mb10{
+    margin-bottom: 10px!important;
+}
+
+.ml10{
+    margin-left: 10px!important;
+}
+.mr10{
+    margin-right: 10px!important;
+}
+
+/*-----------padding--------------*/
+.p10{
+    padding: 10px!important;
+}
+
+.pl10{
+    padding-left: 10px!important;
+}
+.ptl10{
+    padding-top: 10px!important;
+    padding-left: 10px!important;
+}
+
+/*----------位置--------*/
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+
+/*-------position---------*/
+.relative{
+    position: relative!important;
+}
+.none{
+    display: none!important;
+}
+.block{
+    display: block!important;
+}
+
+/*-------font----------*/
+.font12{
+    font-size: 12px!important;
+}
+.font14{
+    font-size: 14px!important;
+}
+.font16{
+    font-size: 16px!important;
+}
+.font18{
+    font-size: 18px!important;
+}
+
+
+
+/*------------常用 end-----------*/
