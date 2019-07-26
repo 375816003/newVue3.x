@@ -10,6 +10,7 @@ module.exports = {
       .set('@$', resolve('src'))
       .set('@$', resolve('src'))
       .set('assets', resolve('src/assets'))
+      .set('profile', resolve('src/profile'))
       .set('components', resolve('src/components'))
       .set('http', resolve('src/http'))
       .set('models', resolve('src/models'))
@@ -49,5 +50,15 @@ module.exports = {
         "windows.jQuery": "jquery"
       })
     ]
+  },
+  css: {
+    loaderOptions: {
+      // 给 stylus-loader 传递选项
+      sass: {
+        // @/ 是 src/ 的别名
+        // 所以这里假设你有 `src/common/stylus/color.styl` 这个文件
+        data: '@import "~@/assets/css/fontColor.scss";'
+      }
+    }
   }
 }

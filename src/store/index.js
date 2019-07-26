@@ -7,10 +7,20 @@ Vue.use(Vuex);
 
 // 初始化全局常量
 const state = {
- 
+  loading:false
 };
 
+const actions = {
+  setLoading({ commit, state }, params) {
+    commit('setLoading', params);
+  },
+}
 
+const mutations = {
+  setLoading(state, params) { //修改名字
+    state.loading = params;
+  },
+}
 /* Store实例 */
 export default new Vuex.Store({
   modules: {
@@ -18,6 +28,6 @@ export default new Vuex.Store({
   },
   state,
   getters,
-  actions:{},
-  mutations:{}
+  actions: actions,
+  mutations: mutations
 });

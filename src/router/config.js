@@ -1,15 +1,50 @@
-const Home = () => import("views/Home.vue")
-const About = () => import("views/About.vue")
+const hd = {
+  path: '/hd',
+  name: 'hd',
+  children: [
+    {
+      path: '/wBench',
+      name: 'wBench',
+    }, {
+      path: '/EMR',
+      name: 'EMR',
+    }, {
+      path: '/history',
+      name: 'history',
+    }, {
+      path: '/analyse',
+      name: 'analyse',
+    }, {
+      path: '/equip',
+      name: 'equip',
+    },
+  ]
+}
+const hm = {
+  path: '/hm',
+  name: 'hm',
+}
+
+const loginDoctor = () => import("views/login/loginDoctor.vue")
+const root = () => import("views/layout")
+
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    redirect:'/login',
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About
+    path: '/login',
+    name: 'login',
+    component: loginDoctor
+  },
+  {
+    path: '/root',
+    name: 'root',
+    component: root,
+    children: [
+      hd,hm
+    ]
   }
 ];
 
