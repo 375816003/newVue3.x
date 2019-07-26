@@ -1,7 +1,7 @@
 <template>
   <div class="login-bg-div">
     <div class="login-bg" style="background:#5CE3A9;display:block;">
-      <img src="./img/login-bg1.png">
+      <img src="@/assets/images/login/login-bg1.png">
       <div class="login-bg-conetnet">
         <div style="font-size:21px;top:172px;left:7px;">欢迎登录怡诺智能慢病管理系统</div>
         <div style="font-size:16px;top:322px;left:30px;">院内治疗</div>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="login-bg" style="background:#EDF6FE;">
-      <img src="./img/login-bg2.png">
+      <img src="@/assets/images/login/login-bg2.png">
       <!-- <div class="login-bg-conetnet">
         <div style="color:#58B530;font-size:14px;top:143px;left:32px;">更便捷的
           <br>信息录入</div>
@@ -23,13 +23,13 @@
       </div> -->
     </div>
     <div class="login-bg" style="background:#FFE07C;">
-      <img src="./img/login-bg3.png">
+      <img src="@/assets/images/login/login-bg3.png">
       <div class="login-bg-conetnet">
         <div style="color:#867644;font-size:14px;top:70px;left:123px;">多种终端操作，应用场景灵活，随时随地掌控患者动态</div>
       </div>
     </div>
     <div class="login-bg" style="background:#3EB6F2;">
-      <img src="./img/login-bg4.png">
+      <img src="@/assets/images/login/login-bg4.png">
       <div class="login-bg-conetnet">
         <div style="font-size:16px;top:62px;left:126px;">大数据统计，多维度分析，全面提升慢病医疗管理水平</div>
       </div>

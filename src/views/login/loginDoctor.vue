@@ -3,11 +3,11 @@
     <template>
       <header id="logo">
         <div class="website-title clearfix">
-          <img src="./img/logo.png" class="logo-img">
+          <img src="@/assets/images/login/logo.png" class="logo-img">
           <div class="website-title-text">怡诺智能慢病管理系统</div>
         </div>
         <div class="notice-div clearfix">
-          <img src="./img/notice.png" class="notice-img">
+          <img src="@/assets/images/login/notice.png" class="notice-img">
           <div class="notice-text">{{ noticeContent }}</div>
         </div>
       </header>
@@ -33,7 +33,7 @@
             >
               <div class="form-group clearfix">
                 <div class="form-label">
-                  <img src="./img/username.png">
+                  <img src="@/assets/images/login/username.png">
                 </div>
                 <div>
                   <el-form-item prop="username" class="userNameClass">
@@ -43,7 +43,7 @@
               </div>
               <div class="form-group clearfix">
                 <div class="form-label">
-                  <img src="./img/password.png">
+                  <img src="@/assets/images/login/password.png">
                 </div>
                 <div>
                   <el-form-item prop="password" class="userNameClass">
@@ -278,12 +278,12 @@ export default {
           &.hide {
             top: 16px;
             background: no-repeat;
-            background-image: url(./img/pwd-hide.png);
+            // background-image: url(@/assets/images/login/pwd-hide.png);
           }
           &.show {
             top: 13px;
             background: no-repeat;
-            background-image: url(./img/pwd-show.png);
+            // background-image: url(@/assets/images/login/pwd-show.png);
           }
         }
         .userNameClass {
@@ -299,7 +299,7 @@ export default {
         position: absolute;
         top: 50%;
         right: 0;
-        background-image: url(./img/touying.png);
+        // background-image: url(@/assets/images/login/touying.png);logo.png
         transform: translate(0, -50%);
         padding: 22px 25px;
         z-index: 700;

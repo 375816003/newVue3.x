@@ -5,9 +5,8 @@ function resolve(dir) {
 }
 module.exports = {
   lintOnSave: false,
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     config.resolve.alias
-      .set('@$', resolve('src'))
       .set('@$', resolve('src'))
       .set('assets', resolve('src/assets'))
       .set('profile', resolve('src/profile'))

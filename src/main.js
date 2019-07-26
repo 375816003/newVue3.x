@@ -13,9 +13,9 @@ import getRoute from 'router/routerConfig';
 import './assets/css/index.scss';
 import './assets/css/fontColor.scss';
 import 'element-ui/lib/theme-chalk/index.css';  
-import api from './api/install'
+import http from './http/install'
 
-Vue.use(api);
+Vue.use(http);
 Vue.use(ElementUI);
 
 moment.lang('zh-cn');
