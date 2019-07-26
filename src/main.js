@@ -7,6 +7,9 @@ import ElementUI from 'element-ui';
 import echarts from 'echarts';
 import lodash from 'lodash';
 import 'element-ui/lib/theme-chalk/index.css';  
+import api from './api/install'
+
+Vue.use(api);
 Vue.use(ElementUI);
 
 moment.lang('zh-cn');
