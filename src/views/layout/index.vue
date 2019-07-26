@@ -1,8 +1,9 @@
 <template>
+<div class="main-contain">
   <div class="nav-first clearfix">
     <div class="orgRole left cur" @click="dialogVisible = true">时代怡诺 <i class="el-icon-arrow-down"></i></div>
     <div class="system left">
-      <el-select v-model="firstRouteId" @change="getSecRoute">
+      <el-select v-model="firstRoute.id" @change="getSecRoute">
         <el-option
           v-for="item in firstRoutes"
           :key="item.id"
@@ -19,7 +20,10 @@
       text-color="#fff"
       active-text-color="#fff"
     >
-      <el-menu-item v-for="route in secondRoutes" :key="route.id" :index="route.id" @click="handleRoute(route)">{{route.name}}</el-menu-item>
+      <el-menu-item v-for="route in secondRoutes" :key="route.id" :index="route.id" >
+        
+        <router-link :to="route.path">{{route.name}}</router-link>
+      </el-menu-item>
     </el-menu>
     <el-dialog
       title="提示"
@@ -32,6 +36,9 @@
       </span>
     </el-dialog>
   </div>
+  <router-view></router-view>
+</div>
+  
 </template>
 
 <script>
@@ -40,7 +47,7 @@ export default {
     return {
       selectRoute: {},
       firstRoutes:[],
-      firstRouteId:'hd',
+      firstRoute:{},
       secondRoutes:[],
       dialogVisible:false
     };
@@ -52,11 +59,12 @@ export default {
   methods: {
     getFirRoute(){
       this.firstRoutes = this.$getRoute();
-      this.firstRouteId = this.firstRoutes[0].id;
+      this.firstRoute = this.firstRoutes[0];
+      
       this.getSecRoute();
     },
     getSecRoute(){
-      this.secondRoutes = this.$getRoute(this.firstRouteId);
+      this.secondRoutes = this.$getRoute(this.firstRoute);
       this.selectRoute = this.secondRoutes[0];
     },
     handleRoute(route){
