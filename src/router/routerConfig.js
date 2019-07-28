@@ -1,5 +1,5 @@
 /** 
- * sys  一级菜单   系统切换（院外、院内等）
+ * sys  一级菜单   系统切换（院外、院内等 并未在路由中 显示）
  * sys_module 二级菜单  模块切换（工作台、报警等）
  * sys_module_operation 三级菜单  （功能操作、数据等）
  * sys_module_operation_classify 四级菜单 （血糖、血压等）
@@ -19,10 +19,10 @@ const sys = [
 const sys_module = {
   base:'root',
   hdSystem: {
-    conf: { grade: 2, root:'/root/phSystem'},
+    conf: { grade: 2, root:'/root'},
     children:[
       { id: 'workBench', path: '/workBench', name: '工作台', permiss: '' },
-      { id: 'EMR', path: '/EMR', name: '电子病历', permiss: '' },
+      { id: 'hdEMR', path: '/hdEMR', name: '电子病历', permiss: '' },
       { id: 'history', path: '/history', name: '历史记录', permiss: '' },
       { id: 'analyse', path: '/analyse', name: '统计分析', permiss: '' },
       { id: 'equip', path: '/equip', name: '设备管理', permiss: ''  },
@@ -35,7 +35,7 @@ const sys_module = {
 };
 const sys_module_operation = {
   workBench: {
-    conf: { grade: 3, root: '/root/phSystem/workBench' },
+    conf: { grade: 3, root: '/root/workBench' },
     children:[{ id: 'bg', path: '/bg', name: '血糖', permiss: ''},
     { id: 'bp', path: '/bp', name: '血压', permiss: ''},
     { id: 'dybg', path: '/dybg', name: '动态血糖', permiss: ''},
@@ -46,8 +46,8 @@ const sys_module_operation = {
     { id: 'hba', path: '/hba', name: '糖化血红蛋白', permiss: ''},
     { id: 'bt', path: '/bt', name: '体温', permiss: '' },
   ]},
-  EMR: {
-    conf: { grade: 3, root: '/root/phSystem/workBench' },
+  hdEMR: {
+    conf: { grade: 3, root: '/root/hdEMR' },
     children:[
       { id: 'operation', path: '/operation', name: '功能操作', permiss: '' },
       { id: 'hdData', path: '/hdData', name: '院内数据', permiss: '' },

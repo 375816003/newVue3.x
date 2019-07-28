@@ -8,72 +8,65 @@ const workBenchBK = () => import("views/hdSystem/workBench/bk")
 const workBenchBL = () => import("views/hdSystem/workBench/bl")
 const workBenchHBA = () => import("views/hdSystem/workBench/hba")
 const workBenchBT = () => import("views/hdSystem/workBench/bt")
-const hd = {
-  path: 'hdSystem',
-  name: 'hdSystem',
-  children: [
-    {
-      path: 'workBench',
-      name: 'workBench',
-      component: workBench,
-      children: [
-        {
-          path: 'bg',
-          name: 'bg',
-          component: workBenchBG,
-        }, {
-          path: 'bp',
-          name: 'bp',
-          component: workBenchBP,
-        }, {
-          path: 'dybg',
-          name: 'dybg',
-          component: workBenchDYBG,
-        }, {
-          path: 'dybp',
-          name: 'dybp',
-          component: workBenchDYBP,
-        }, {
-          path: 'ua',
-          name: 'ua',
-          component: workBenchUA,
-        }, {
-          path: 'bk',
-          name: 'bk',
-          component: workBenchBK,
-        }, {
-          path: 'bl',
-          name: 'bl',
-          component: workBenchBL,
-        }, {
-          path: 'hba',
-          name: 'hba',
-          component: workBenchHBA,
-        }, {
-          path: 'bt',
-          name: 'bt',
-          component: workBenchBT,
-        }
-      ]
-    }, {
-      path: 'EMR',
-      name: 'EMR',
-    }, {
-      path: 'history',
-      name: 'history',
-    }, {
-      path: 'analyse',
-      name: 'analyse',
-    }, {
-      path: 'equip',
-      name: 'equip',
-    },
-  ]
-}
-const hm = {
-  path: 'hmSystem',
-  name: 'hmSystem',
-}
+const hd = [
+  {
+    path: 'workBench',
+    name: 'workBench',
+    component: workBench,
+    children: [
+      {
+        path: 'bg',
+        name: 'bg',
+        component: workBenchBG,
+      }, {
+        path: 'bp',
+        name: 'bp',
+        component: workBenchBP,
+      }, {
+        path: 'dybg',
+        name: 'dybg',
+        component: workBenchDYBG,
+      }, {
+        path: 'dybp',
+        name: 'dybp',
+        component: workBenchDYBP,
+      }, {
+        path: 'ua',
+        name: 'ua',
+        component: workBenchUA,
+      }, {
+        path: 'bk',
+        name: 'bk',
+        component: workBenchBK,
+      }, {
+        path: 'bl',
+        name: 'bl',
+        component: workBenchBL,
+      }, {
+        path: 'hba',
+        name: 'hba',
+        component: workBenchHBA,
+      }, {
+        path: 'bt',
+        name: 'bt',
+        component: workBenchBT,
+      }
+    ]
+  }, {
+    path: 'hdEMR',
+    name: 'hdEMR',
+  }, {
+    path: 'history',
+    name: 'history',
+  }, {
+    path: 'analyse',
+    name: 'analyse',
+  }, {
+    path: 'equip',
+    name: 'equip',
+  },
+]
+const hm = []
 
 const loginDoctor = () => import("views/login/loginDoctor.vue")
 const root = () => import("views/layout")
@@ -94,12 +87,11 @@ const routes = [
     component: root,
     // redirect:'/root/hdSystem/workBench',
     children: [
-      hd,hm
+      ...hd,...hm
     ]
   }
 ];
 
-console.log(routes)
 
 
 export default routes;

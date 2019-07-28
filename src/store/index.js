@@ -7,18 +7,25 @@ Vue.use(Vuex);
 
 // 初始化全局常量
 const state = {
-  loading:false
+  loading:false,
+  system:'hdSystem'
 };
 
 const actions = {
   setLoading({ commit, state }, params) {
     commit('setLoading', params);
   },
+  setSystem({ commit, state }, params) {
+    commit('setSystem', params);
+  },
 }
 
 const mutations = {
   setLoading(state, params) { //修改名字
     state.loading = params;
+  },
+  setSystem(state, params) { //修改名字
+    state.system = params;
   },
 }
 /* Store实例 */
