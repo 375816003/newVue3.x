@@ -8,6 +8,12 @@ const workBenchBK = () => import("views/hdSystem/workBench/bk")
 const workBenchBL = () => import("views/hdSystem/workBench/bl")
 const workBenchHBA = () => import("views/hdSystem/workBench/hba")
 const workBenchBT = () => import("views/hdSystem/workBench/bt")
+const EMR = () => import("views/hdSystem/EMR/index.vue")
+const operation = () => import("views/hdSystem/EMR/operation")
+const hdData = () => import("views/hdSystem/EMR/hdData")
+const hmData = () => import("views/hdSystem/EMR/hmData")
+const hygiene = () => import("views/hdSystem/EMR/hygiene")
+const familyDoc = () => import("views/hdSystem/EMR/familyDoc")
 const hd = [
   {
     path: 'workBench',
@@ -53,8 +59,33 @@ const hd = [
       }
     ]
   }, {
-    path: 'hdEMR',
-    name: 'hdEMR',
+    path: 'EMR',
+    name: 'EMR',
+    component: EMR,
+    children: [
+      {
+        path: 'hdData',
+        name: 'hdData',
+        component: hdData,
+      }, {
+        path: 'hmData',
+        name: 'hmData',
+        component: hmData,
+      }, {
+        path: 'familyDoc',
+        name: 'familyDoc',
+        component: familyDoc,
+      },
+      , {
+        path: 'hygiene',
+        name: 'hygiene',
+        component: hygiene,
+      }, {
+        path: 'operation',
+        name: 'operation',
+        component: operation,
+      }
+    ]
   }, {
     path: 'history',
     name: 'history',

@@ -8,7 +8,8 @@ Vue.use(Vuex);
 // 初始化全局常量
 const state = {
   loading:false,
-  system:'hdSystem'
+  system: 'hdSystem',
+  routes:{}
 };
 
 const actions = {
@@ -18,14 +19,21 @@ const actions = {
   setSystem({ commit, state }, params) {
     commit('setSystem', params);
   },
+  setRoutes({ commit, state }, params) {
+    commit('setRoutes', params);
+  },
+  
 }
 
 const mutations = {
   setLoading(state, params) { //修改名字
     state.loading = params;
   },
-  setSystem(state, params) { //修改名字
+  setSystem(state, params) { //修改系统
     state.system = params;
+  },
+  setRoutes(state, params) { 
+    state.routes = params;
   },
 }
 /* Store实例 */

@@ -1,9 +1,9 @@
 <template>
-<div class="main-contain">
+<div class="view_contain">
   <div class="nav-first clearfix">
     <div class="orgRole left cur" @click="dialogVisible = true">时代怡诺 <i class="el-icon-arrow-down"></i></div>
     <div class="system left">
-      <el-select v-model="firstRoute.id" @change="getSecRoute">
+      <el-select v-model="firstRouteId" @change="changeSys">
         <el-option
           v-for="item in firstRoutes"
           :key="item.id"
@@ -12,19 +12,9 @@
         </el-option>
       </el-select>
     </div>
-    <el-menu
-      :default-active="selectRoute.id"
-      class="el-menu-demo"
-      mode="horizontal"
-      background-color="#1e89e0"
-      text-color="#fff"
-      active-text-color="#fff"
-    >
-      <el-menu-item v-for="route in secondRoutes" :key="route.id" :index="route.id" >
-        
-        <router-link :to="route.path">{{route.name}}</router-link>
-      </el-menu-item>
-    </el-menu>
+    <div class="routeLink clearfix">
+      <router-link class="firstLink" v-for="route in secondRoutes" :key="route.id" :to="route.path">{{route.name}}</router-link>
+    </div>
     <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
@@ -36,12 +26,16 @@
       </span>
     </el-dialog>
   </div>
-  <router-view></router-view>
+  <div class="first_router_view">
+    <router-view></router-view>
+  </div>
+  
 </div>
   
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -49,18 +43,34 @@ export default {
       firstRoutes:[],
       firstRoute:{},
       secondRoutes:[],
+      firstRouteId:'',
       dialogVisible:false
     };
   },
-
+  computed: {
+    ...mapGetters(["routes"])
+  },
+  watch: {
+    routes: function() {
+      let path = this.routes[0].path;
+      this.$router.push(path);
+    }
+  },
   mounted() {
     this.getFirRoute()
   },
   methods: {
     getFirRoute(){
       this.firstRoutes = this.$getRoute();
-      this.firstRoute = this.firstRoutes[0];
-      
+      let firstRoute = this.firstRoutes[0]
+      this.firstRoute = firstRoute;
+      this.firstRouteId = firstRoute.id;
+      this.getSecRoute();
+    },
+    changeSys(e){
+      this.firstRoute = _.filter(this.firstRoutes,function(ele){
+        return ele.id == e;
+      })[0];
       this.getSecRoute();
     },
     getSecRoute(){
@@ -75,6 +85,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.first_router_view{
+  height: calc(100% - 60px);
+}
 .nav-first {
   background-color: #1e89e0;
   padding-left: 20px;
@@ -84,17 +97,20 @@ export default {
     color:#fff;
     font-size: 18px;
   }
-  .el-menu-demo{
-    width: calc(100% - 250px);
-    border-style: none;
-    float: right;
-  }
-  .el-menu-item{
-    font-size: 18px;
-    padding: 0 10px;
-    &.is-active{
-      background-color: #0273c8!important;
-      border-bottom-style: none;
+  .routeLink{
+    .firstLink{
+      width: 80px;
+      display: block;
+      float: left;
+      line-height: 60px;
+      color: #fff;
+      font-size: 16px;
+      &:hover{
+        background-color: #0081e3;
+      }
+      &.router-link-active{
+        background-color: #0273c8;
+      }
     }
   }
   
