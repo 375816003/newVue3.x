@@ -1,4 +1,5 @@
-/** 
+import store from 'store'
+/**
  * sys  一级菜单   系统切换（院外、院内等 并未在路由中 显示）
  * sys_module 二级菜单  模块切换（工作台、报警等）
  * sys_module_operation 三级菜单  （功能操作、数据等）
@@ -22,7 +23,7 @@ const sys_module = {
     conf: { grade: 2, root:'/root'},
     children:[
       { id: 'workBench', path: '/workBench', name: '工作台', permiss: '' },
-      { id: 'hdEMR', path: '/hdEMR', name: '电子病历', permiss: '' },
+      { id: 'EMR', path: '/EMR', name: '电子病历', permiss: '' },
       { id: 'history', path: '/history', name: '历史记录', permiss: '' },
       { id: 'analyse', path: '/analyse', name: '统计分析', permiss: '' },
       { id: 'equip', path: '/equip', name: '设备管理', permiss: ''  },
@@ -31,7 +32,19 @@ const sys_module = {
       { id: 'contacts', path: '/contacts', name: '联系人', permiss: '' },
     ]
   },
-  hmSystem: []
+  hmSystem: {
+    conf: { grade: 2, root: '/root' },
+    children: [
+      { id: 'workBench', path: '/workBench', name: '工作台', permiss: '' },
+      { id: 'EMR', path: '/EMR', name: '电子病历', permiss: '' },
+      { id: 'history', path: '/history', name: '历史记录', permiss: '' },
+      { id: 'analyse', path: '/analyse', name: '统计分析', permiss: '' },
+      { id: 'equip', path: '/equip', name: '设备管理', permiss: '' },
+      { id: 'setting', path: '/setting', name: '系统管理', permiss: '' },
+      { id: 'transfer', path: '/transfer', name: '转诊管理', permiss: '' },
+      { id: 'contacts', path: '/contacts', name: '联系人', permiss: '' },
+    ]
+  },
 };
 const sys_module_operation = {
   workBench: {
@@ -46,12 +59,12 @@ const sys_module_operation = {
     { id: 'hba', path: '/hba', name: '糖化血红蛋白', permiss: ''},
     { id: 'bt', path: '/bt', name: '体温', permiss: '' },
   ]},
-  hdEMR: {
-    conf: { grade: 3, root: '/root/hdEMR' },
+  EMR: {
+    conf: { grade: 3, root: '/root/EMR' },
     children:[
       { id: 'operation', path: '/operation', name: '功能操作', permiss: '' },
       { id: 'hdData', path: '/hdData', name: '院内数据', permiss: '' },
-      { id: 'hmData', path: '/bgData', name: '院外数据', permiss: ''},
+      { id: 'hmData', path: '/hmData', name: '院外数据', permiss: ''},
       { id: 'hygiene', path: '/hygiene', name: '基本公卫数据', permiss: ''},
       { id: 'familyDoc', path: '/familyDoc', name: '家庭医生数据', permiss: '' },
     ] }
@@ -75,6 +88,7 @@ function getRoute(obj) {
     children[i].path = conf.root + children[i].path;
     children[i].grade = conf.grade;
   }
-  return real.children;
+  store.dispatch('setRoutes', children)
+  return children;
 }
 export default getRoute;
