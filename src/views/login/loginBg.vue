@@ -11,16 +11,6 @@
     </div>
     <div class="login-bg" style="background:#EDF6FE;">
       <img src="@/assets/images/login/login-bg2.png">
-      <!-- <div class="login-bg-conetnet">
-        <div style="color:#58B530;font-size:14px;top:143px;left:32px;">更便捷的
-          <br>信息录入</div>
-        <div style="color:#FE7979;font-size:14px;top:201px;left:182px;">院内治疗
-          <br>院外管理</div>
-        <div style="color:#4BA7F5;font-size:14px;top:251px;left:38px;">更贴心的
-          <br>患者服务</div>
-        <div style="color:#FA9B00;font-size:14px;top:317px;left:166px;">更智能的
-          <br>数据监控</div>
-      </div> -->
     </div>
     <div class="login-bg" style="background:#FFE07C;">
       <img src="@/assets/images/login/login-bg3.png">

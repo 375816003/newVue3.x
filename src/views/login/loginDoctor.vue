@@ -92,8 +92,6 @@
     </template>
   </div>
 </template>
-  </div>
-</template>
 
 <script>
 import loginBg from "./loginBg";
@@ -105,8 +103,8 @@ export default {
       showType: "password",
       websites:[],
       loginForm: {
-        username: "",
-        password: ""
+        username: "admin",
+        password: "admin"
       },
       loginRules: {
         username: {
@@ -128,6 +126,10 @@ export default {
       information:{}
     };
   },
+  mounted() {
+    this.setCompany();
+    this.setQRCode();
+  },
   methods: {
     showTypeFun() {
       if (this.showType === "text") {
@@ -140,12 +142,24 @@ export default {
       this.loginMessage = "";
       this.$refs["loginForm"].validate(valid => {
         if (valid) {
+          alert(0);
           this.toLogin();
         }
       });
     },
-    toLogin(login){
-      this.$router.push('root');
+    async toLogin() {
+      // 这里用try catch包裹，请求失败的时候就执行catch里的
+      try {
+        //定义参数对象
+        let params = this.loginForm;
+        console.log(this.$api.login.getToken(params));
+        // console.log(this.$http.login.getToken(params));
+        let res = await this.$api.login.getToken(params)
+
+        console.log(res)
+      } catch (e) {
+        console.log(e)
+      }
     },
 
     noticePlay(noticeTop) {
@@ -178,16 +192,13 @@ export default {
       });
     },
     setCompany(){
+      // profile 文件夹 各种本地文案及配置 使用方法 例如：this.$profile.company('websiteAbout')；
       this.websites = this.$profile.company('websiteAbout');
       this.information = this.$profile.company('information');
     }
   },
   created() {
    
-  },
-  mounted() {
-    this.setCompany();
-    this.setQRCode();
   },
   updated() {
     if (!this.isNoticePlay) {
@@ -278,12 +289,12 @@ export default {
           &.hide {
             top: 16px;
             background: no-repeat;
-            // background-image: url(@/assets/images/login/pwd-hide.png);
+            background-image: url(~@/assets/images/login/pwd-hide.png);
           }
           &.show {
             top: 13px;
             background: no-repeat;
-            // background-image: url(@/assets/images/login/pwd-show.png);
+            background-image: url(~@/assets/images/login/pwd-show.png);
           }
         }
         .userNameClass {
@@ -299,7 +310,7 @@ export default {
         position: absolute;
         top: 50%;
         right: 0;
-        // background-image: url(@/assets/images/login/touying.png);logo.png
+        background-image: url(~@/assets/images/login/touying.png);
         transform: translate(0, -50%);
         padding: 22px 25px;
         z-index: 700;

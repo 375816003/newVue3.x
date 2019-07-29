@@ -29,10 +29,10 @@ module.exports = {
     host: 'localhost',
     https: false, // https:{type:Boolean}
     open: true, //配置自动启动浏览器
-    // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
+    // proxy: 'http://39.104.110.111:8765' // 配置跨域处理,只有一个代理
     proxy: {
-      '/api': {
-        target: '<url>',
+      '/dev': {
+        target: 'http://39.104.110.111:8765/',
         ws: true,
         changeOrigin: true
       },

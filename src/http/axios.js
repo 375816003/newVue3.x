@@ -6,6 +6,7 @@ let service = axios.create({
   timeout: 60000
 })
 
+service.defaults.baseURL = '/dev'
 // 设置 post、put 默认 Content-Type
 service.defaults.headers.put['Content-Type'] = 'application/json'
 
