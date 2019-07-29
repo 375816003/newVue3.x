@@ -3,6 +3,7 @@ const system = 'dev'
 switch (system) {
   case 'dev':
     baseUrl = 'http://39.104.110.111:8765/api' // 测试环境url
+    // baseUrl = 'localhost:3333' // 测试环境url
     break
   case 'pre':
     baseUrl = 'http://39.104.110.111:8765/api' // 预上线环境url

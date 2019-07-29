@@ -34,11 +34,14 @@ module.exports = {
       '/dev': {
         target: 'http://39.104.110.111:8765/',
         ws: true,
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          '^/dev': ''
+        }
       },
-      '/foo': {
-        target: '<other_url>'
-      }
+      // '/foo': {
+      //   target: '<other_url>'
+      // }
     },
   },
   configureWebpack: {

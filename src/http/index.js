@@ -23,7 +23,6 @@ export default {
     if (headers) {
       options.headers = headers
     }
-    console.log(url, data, options);
     return instance.post(url, data, options)
   },
   put(url, params, headers) {

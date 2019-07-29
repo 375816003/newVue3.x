@@ -6,6 +6,9 @@ import urls from './urls'
 export default {
   getToken(data) {
     // return出去了一个promise
-    return api.post(urls.token, {}, false,data)
+    return api.post(urls.token, {}, {'Content-Type':'application/json'}, {
+      username: "admin",
+      password: "admin"
+    })
   }
 }
