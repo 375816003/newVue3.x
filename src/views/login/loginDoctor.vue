@@ -151,17 +151,9 @@ export default {
       try {
         //定义参数对象
         let params = this.loginForm;
-<<<<<<< HEAD
-        console.log(this.$api.login.getToken(params));
-        // console.log(this.$http.login.getToken(params));
-        let res = await this.$api.login.getToken(params)
-        session.setSession('Token',res.data);
-        console.log(res)
-=======
         let res = await this.$api.login.getToken(params);
         let userRes= await this.$api.login.getInitInfo({token:res.data}); 
         console.log(userRes);
->>>>>>> f3b119834c960a8e9c7a4295d4c354b3187b0ab0
       } catch (e) {
         console.log(e)
       }
