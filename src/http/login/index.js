@@ -9,6 +9,6 @@ export default {
     return api.post(urls.token, data,)
   },
   getInitInfo(params){
-    return api.get(urls.getInitInfo,params)
+    return api.post(urls.getInitInfo, {}, {},params)
   }
 }

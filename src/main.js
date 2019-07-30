@@ -10,6 +10,9 @@ import QRCode from 'qrcodejs2';
 import profile from 'profile';
 import getRoute from 'router/routerConfig';
 import session from 'storage'
+import 'jquery'
+import 'ztree'
+import 'ztree/css/metroStyle/metroStyle.css'
 
 import './assets/css/index.scss';
 import './assets/css/fontColor.scss';

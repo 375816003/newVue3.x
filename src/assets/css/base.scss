@@ -22,6 +22,7 @@ a:focus {
 }
 .view_contain{
   height: 100%;
+  background-color: $colorContentBg2;
 }
 .second_router_view{
   height:calc(100% - 40px);
@@ -54,8 +55,10 @@ a:focus {
   }
 }
 .second-nav{
+  background-color: $white;
   .routeLink{
-    line-height: 40px;
+    line-height: 39px;
+    height: 40px;
     .secondLink{
       float: left;
       display: block;
@@ -73,5 +76,5 @@ a:focus {
       }
     }
   } 
-  border-bottom: 1px solid $borderStyle2;
+  border-bottom: $borderStyle2;
 }
