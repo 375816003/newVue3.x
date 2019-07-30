@@ -9,7 +9,7 @@ Vue.use(Vuex);
 const state = {
   loading:false,
   system: 'hdSystem',
-  routes:{},
+  routes:[],
   token:'',
 };
 

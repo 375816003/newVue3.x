@@ -14,6 +14,7 @@
     </div>
     <div class="routeLink clearfix">
       <router-link class="firstLink" v-for="route in secondRoutes" :key="route.id" :to="route.path">{{route.name}}</router-link>
+      <router-link class="firstLink" v-for="route in firstRoutesLast" :key="route.id" :to="route.path">{{route.name}}</router-link>
     </div>
     <el-dialog
       title="提示"
@@ -36,6 +37,8 @@
 
 <script>
 import { mapGetters } from "vuex";
+import store from 'store'
+import session from 'storage'
 export default {
   data() {
     return {
@@ -44,7 +47,12 @@ export default {
       firstRoute:{},
       secondRoutes:[],
       firstRouteId:'',
-      dialogVisible:false
+      dialogVisible:false,
+      firstRoutesLast:[
+        { id: 'setting', path: '/setting', name: '系统管理', permiss: ''  },
+        { id: 'transfer', path: '/transfer', name: '转诊管理', permiss: '' },
+        { id: 'contacts', path: '/contacts', name: '联系人', permiss: '' }
+      ]
     };
   },
   computed: {
@@ -52,8 +60,12 @@ export default {
   },
   watch: {
     routes: function() {
-      let path = this.routes[0].path;
-      this.$router.push(path);
+      let routes = session.getSession('routes');
+      let routesChange = session.getSession('routesChange')
+      if(routesChange){
+        let path = routes[0].path;
+        this.$router.push(path);
+      }
     }
   },
   mounted() {
@@ -62,15 +74,26 @@ export default {
   methods: {
     getFirRoute(){
       this.firstRoutes = this.$getRoute();
-      let firstRoute = this.firstRoutes[0]
+      let system = session.getSession('system')
+      let firstRoute = this.getFirstRoute(system);
       this.firstRoute = firstRoute;
       this.firstRouteId = firstRoute.id;
       this.getSecRoute();
     },
-    changeSys(e){
-      this.firstRoute = _.filter(this.firstRoutes,function(ele){
-        return ele.id == e;
-      })[0];
+    getFirstRoute(id){
+      if(id){
+        let first = _.filter(this.firstRoutes,function(ele){
+          return ele.id == id;
+        })[0];
+        return first;
+      }else{
+        return this.firstRoutes[0];
+      }
+    },
+    changeSys(id){
+      this.firstRoute = this.getFirstRoute(id);
+      store.commit('setSystem', this.firstRoute.id)
+      session.setSession('system',this.firstRoute.id);
       this.getSecRoute();
     },
     getSecRoute(){

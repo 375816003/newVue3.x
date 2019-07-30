@@ -10,6 +10,7 @@ import lodash from 'lodash';
 import QRCode from 'qrcodejs2';
 import profile from 'profile';
 import getRoute from 'router/routerConfig';
+import session from 'storage'
 
 import './assets/css/index.scss';
 import './assets/css/fontColor.scss';
@@ -28,7 +29,14 @@ Vue.prototype.$store = store;
 Vue.prototype.$QRCode = QRCode;
 Vue.prototype.$profile = profile;
 Vue.prototype.$getRoute = getRoute;
-
+router.beforeEach((to, from, next) => {
+  if (store.state.routes[0]) {
+    session.setSession('routesChange', 1);
+  } else {
+    session.setSession('routesChange', '');
+  }
+  next();
+})
 new Vue({
   router,
   store,

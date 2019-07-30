@@ -14,9 +14,9 @@ const hdData = () => import("views/hdSystem/EMR/hdData")
 const hmData = () => import("views/hdSystem/EMR/hmData")
 const hygiene = () => import("views/hdSystem/EMR/hygiene")
 const familyDoc = () => import("views/hdSystem/EMR/familyDoc")
-const hd = [
+const hdModle = [
   {
-    path: 'workBench',
+    path: '/workBench',
     name: 'workBench',
     component: workBench,
     children: [
@@ -59,7 +59,7 @@ const hd = [
       }
     ]
   }, {
-    path: 'EMR',
+    path: '/EMR',
     name: 'EMR',
     component: EMR,
     children: [
@@ -87,18 +87,60 @@ const hd = [
       }
     ]
   }, {
-    path: 'history',
+    path: '/history',
     name: 'history',
   }, {
-    path: 'analyse',
+    path: '/analyse',
     name: 'analyse',
   }, {
-    path: 'equip',
+    path: '/equip',
     name: 'equip',
   },
 ]
-const hm = []
 
+
+
+//院外管理
+const hmModle = []
+
+
+
+
+
+
+
+
+
+//系统管理
+const setting = () => import("views/setting")
+const orgMgr = () => import("views/setting/orgMgr.vue")
+const roleMgr = () => import("views/setting/roleMgr")
+const accountMgr = () => import("views/setting/accountMgr")
+const ruleMgr = () => import("views/setting/ruleMgr")
+const settingModle = {
+  path: '/setting',
+  name: 'setting',
+  component: setting,
+  children: [
+    {
+      path: 'orgMgr',
+      name: 'orgMgr',
+      component: orgMgr
+    }, {
+      path: 'roleMgr',
+      name: 'roleMgr',
+      component: roleMgr
+    }, {
+      path: 'accountMgr',
+      name: 'accountMgr',
+      component: accountMgr
+    }, {
+      path: 'ruleMgr',
+      name: 'ruleMgr',
+      component: ruleMgr
+    },
+  ]
+}
 const loginDoctor = () => import("views/login/loginDoctor.vue")
 const root = () => import("views/layout")
 
@@ -118,7 +160,7 @@ const routes = [
     component: root,
     // redirect:'/root/hdSystem/workBench',
     children: [
-      ...hd,...hm
+      ...hdModle, ...hmModle, settingModle
     ]
   }
 ];
