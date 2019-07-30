@@ -9,7 +9,8 @@ Vue.use(Vuex);
 const state = {
   loading:false,
   system: 'hdSystem',
-  routes:{}
+  routes:{},
+  token:'',
 };
 
 const actions = {
@@ -22,18 +23,23 @@ const actions = {
   setRoutes({ commit, state }, params) {
     commit('setRoutes', params);
   },
-  
+  setToken({ commit, state }, params) { 
+    commit('setToken', params);
+  },
 }
 
 const mutations = {
   setLoading(state, params) { //修改名字
     state.loading = params;
   },
-  setSystem(state, params) { //修改系统
+  setSystem(state, params) { //切换系统
     state.system = params;
   },
-  setRoutes(state, params) { 
+  setRoutes(state, params) { // 动态设置路由 
     state.routes = params;
+  },
+  setToken(state, params) { // 登陆页面 获取token
+    state.token = params;
   },
 }
 /* Store实例 */
@@ -43,6 +49,6 @@ export default new Vuex.Store({
   },
   state,
   getters,
-  actions: actions,
-  mutations: mutations
+  actions,
+  mutations
 });

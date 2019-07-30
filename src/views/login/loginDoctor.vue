@@ -142,7 +142,6 @@ export default {
       this.loginMessage = "";
       this.$refs["loginForm"].validate(valid => {
         if (valid) {
-          alert(0);
           this.toLogin();
         }
       });
@@ -153,8 +152,9 @@ export default {
         //定义参数对象
         let params = this.loginForm;
         let res = await this.$api.login.getToken(params);
+        this.$store.commit('setToken',res.data);
+        console.log(this.$store.state);
         let userRes= await this.$api.login.getInitInfo({token:res.data}); 
-        console.log(userRes);
       } catch (e) {
         console.log(e)
       }

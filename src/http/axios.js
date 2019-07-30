@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { Message } from 'element-ui';
+import store from 'store'
 
 // 创建 axios 实例
 let service = axios.create({
@@ -16,6 +18,8 @@ service.interceptors.request.use((config) => {
         // post、put 提交时，将对象转换为string, 为处理Java后台解析问题
         config.data = JSON.stringify(config.data)
     } 
+    store.dispatch('setLoading', true);
+ 
     // else if (config.method === 'get' && browser.isIE) {
     //     // 给GET 请求后追加时间戳， 解决IE GET 请求缓存问题
     //     let symbol = config.url.indexOf('?') >= 0 ? '&' : '?'
@@ -24,6 +28,9 @@ service.interceptors.request.use((config) => {
     // 请求发送前进行处理
     return config
   },(error) => {
+    setTimeout(function() {
+      store.dispatch('setLoading', 0)
+    }, 300)
     // 请求错误处理
     return Promise.reject(error)
   }
@@ -31,7 +38,20 @@ service.interceptors.request.use((config) => {
 
 // 添加响应拦截器
 service.interceptors.response.use(response => {
-    let {data} = response
+    let {data} = response;
+    store.dispatch('setLoading', false)
+    if (response.data && response.data.status!= 200 ) {
+      Message({
+        showClose: true,
+        message: response.data.message
+          ? response.data.message
+          : '网络请求错误，请稍后重试',
+        type: "error",
+        offset:200,
+        duration:3000,
+      });
+      return Promise.reject(response.data.message);
+    }
     return data
   }, error => {
     let info = {}
@@ -49,6 +69,7 @@ service.interceptors.response.use(response => {
         msg: statusText
       }
     }
+    store.dispatch('setLoading', false)
     return Promise.reject(info)
 })
   
