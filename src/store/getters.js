@@ -2,6 +2,7 @@ const getters = {
   loading: state => state.loading,
   routes: state => state.routes, 
   system: state => state.system, 
+  token: state => state.token, 
   // im聊天测试
   currentChatPerson: state => state.webim.currentChatPerson,
   newMsgList: state => state.webim.newMsgList,

@@ -153,7 +153,6 @@ export default {
         let params = this.loginForm;
         let res = await this.$api.login.getToken(params);
         this.$store.commit('setToken',res.data);
-        console.log(this.$store.state);
         let userRes= await this.$api.login.getInitInfo({token:res.data}); 
       } catch (e) {
         console.log(e)
