@@ -7,7 +7,7 @@ const install = function (Vue) {
   install.installed = true
   Object.defineProperties(Vue.prototype, {
     $api: {
-      get () {
+      get() {
         return apiList
       },
       enumerable: false, // 不可枚举

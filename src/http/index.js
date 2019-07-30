@@ -14,9 +14,8 @@ export default {
     }
     return instance.get(url, options)
   },
-  post(url, params, headers, data) {
+  post(url,data,headers,params) {
     let options = {}
-
     if (params) {
       options.params = params
     }
