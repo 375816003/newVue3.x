@@ -142,7 +142,6 @@ export default {
       this.loginMessage = "";
       this.$refs["loginForm"].validate(valid => {
         if (valid) {
-          alert(0);
           this.toLogin();
         }
       });
@@ -155,7 +154,7 @@ export default {
         console.log(this.$api.login.getToken(params));
         // console.log(this.$http.login.getToken(params));
         let res = await this.$api.login.getToken(params)
-
+        session.setSession('Token',res.data);
         console.log(res)
       } catch (e) {
         console.log(e)
