@@ -152,11 +152,8 @@ export default {
         //定义参数对象
         let params = this.loginForm;
         let res = await this.$api.login.getToken(params);
-        console.log(res.data)
+        this.$store.commit('setToken',res.data);
         let userRes= await this.$api.login.getInitInfo({token:res.data}); 
-        session.setSession('token',res.data);
-        session.setSession('userRes',userRes);
-        console.log(userRes);
       } catch (e) {
         console.log(e)
       }

@@ -10,7 +10,10 @@ export default {
       options.params = params
     }
     if (headers) {
-      options.headers = headers
+      // options.headers = headers
+      options.headers = {
+        'Content-Type':'application/json'
+      }
     }
     return instance.get(url, options)
   },

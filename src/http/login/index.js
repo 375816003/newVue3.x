@@ -4,11 +4,10 @@ import urls from './urls'
 // const header = {};
 
 export default {
-  getToken(data) {
-    // return出去了一个promise
+  getToken(data) { // 登陆获取token参数
     return api.post(urls.token, data,)
   },
-  getInitInfo(params){
-    return api.post(urls.getInitInfo, {}, {},params)
+  getInitInfo(params){ // 获取登陆用户信息及组织默认值
+    return api.post(urls.getInitInfo,{},false,params)
   }
 }
